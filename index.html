@@ -16,7 +16,7 @@
             --dark: #202124;
             --bg: #F8F9FA;
             --links-primary: #007bff;
-            --hover: #eb3480; /* Light mode hover */
+            --hover: #eb3480;
         }
 
         /* Dark Mode Override */
@@ -28,7 +28,7 @@
             --dark: #e0e0e0;
             --bg: #212121;
             --links-primary: #81d4fa;
-            --hover: #eb3480; /* Dark mode hover */
+            --hover: #eb3480;
         }
 
         * {
@@ -108,7 +108,7 @@
             border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
-            cursor: pointer; /* Add cursor pointer */
+            cursor: pointer;
         }
 
         .app-card:hover {
@@ -174,7 +174,7 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            margin-top: 1rem; /* Add margin to separate button */
+            margin-top: 1rem;
         }
 
         .windows-btn {
@@ -205,50 +205,6 @@
 
         .android-btn:hover {
             background: var(--hover);
-        }
-
-        .web-apps-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 3rem;
-        }
-
-        .web-app-card {
-            background: var(--light);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            width: 180px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .web-app-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-color: rgba(123, 3, 252, 0.3);
-        }
-
-        .web-app-icon {
-            font-size: 2rem;
-            color: var(--links-primary);
-            margin-bottom: 1rem;
-        }
-
-        .web-app-title {
-            font-size: 1rem;
-            margin-top: 0.5rem;
-            color: var(--dark);
         }
 
         footer {
@@ -319,56 +275,13 @@
             transform: translateX(18px);
         }
 
-        /* Secret Button */
-        .secret-button {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 1rem;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: opacity 0.3s;
-            border: none;
-            background: none;
-            color: var(--dark);
-        }
-
-        .secret-button:hover {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .apps-grid, .web-apps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-        }
-
-        /* Blue Shade Effect (Gradient) */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 150px; /* Adjust height as needed */
-            background: linear-gradient(to bottom, rgba(0, 123, 255, 0.2), rgba(0, 123, 255, 0)); /* Gradient from 20% to 0% transparency */
-            z-index: -1;
-            pointer-events: none; /* Prevent interference with clicks */
-        }
-
+        /* Password Info */
         .password-info {
             text-align: center;
             margin-top: 1rem;
-            color: var(--dark);
-            opacity: 0.7;
-            font-size: 0.9rem;
-            display: inline-block; /* Change to inline-block */
-            background-color: rgba(0, 123, 255, 0.1); /* Light blue background */
-            color: #007bff; /* Blue text color */
+            display: inline-block;
+            background-color: rgba(0, 123, 255, 0.1);
+            color: #007bff;
             padding: 5px 10px;
             border-radius: 5px;
         }
@@ -383,6 +296,29 @@
 
         .copy-password-btn i.fa-check {
             display: none;
+        }
+
+        @media (max-width: 768px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Blue Shade Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, rgba(0, 123, 255, 0.2), rgba(0, 123, 255, 0));
+            z-index: -1;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -410,7 +346,6 @@
                 <div class="app-icon windows-icon">
                     <i class="fas fa-cloud"></i>
                 </div>
-                <span class="platform-badge windows-badge">Windows</span>
                 <h3>Fusion Access Cloud Client</h3>
                 <p>Secure remote access solution for enterprise environments</p>
                 <a href="https://drive.google.com/file/d/1L4f7KKVzKLsVb8mTMCX0GhAetVUrDBe2/view?usp=drive_link" target="_blank" class="btn windows-btn" onclick="event.stopPropagation();">Download</a>
@@ -419,7 +354,6 @@
                 <div class="app-icon windows-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <span class="platform-badge windows-badge">Windows</span>
                 <h3>Cisco AnyConnect</h3>
                 <p>VPN client for secure network connectivity</p>
                 <a href="https://drive.google.com/file/d/1htFzWBc-SGOn2i-0NnCuUEuwBEYQPdoF/view?usp=drive_link" target="_blank" class="btn windows-btn" onclick="event.stopPropagation();">Download</a>
@@ -428,7 +362,6 @@
                 <div class="app-icon windows-icon">
                     <i class="fas fa-video"></i>
                 </div>
-                <span class="platform-badge windows-badge">Windows</span>
                 <h3>LinkUp Meeting App</h3>
                 <p>Video conferencing and collaboration platform</p>
                 <a href="https://drive.google.com/file/d/1bc0zBpLRWb-bFnaQKlqUx5vMKWFXHcDU/view?usp=drive_link" target="_blank" class="btn windows-btn" onclick="event.stopPropagation();">Download</a>
@@ -437,29 +370,26 @@
 
         <h2 class="section-title">Android Applications</h2>
         <div class="apps-grid">
-            <div class="app-card android-card" onclick="openLink('https://drive.google.com/file/d/1It2lQ4wFbtsdEjb5Y2fa8tO_d8dWvD2f/view?usp=drive_link');">
+            <div class="app-card android-card" onclick="openLink('https://drive.google.com/file/d/1It2lQ4wFbtsdEjb5Y2fa8tO_d8dWvD2f/view');">
                 <div class="app-icon android-icon">
                     <i class="fas fa-cloud"></i>
                 </div>
-                <span class="platform-badge android-badge">Android</span>
                 <h3>Fusion Access Cloud Client</h3>
                 <p>Mobile version of the secure remote access solution</p>
-                <a href="https://drive.google.com/file/d/1It2lQ4wFbtsdEjb5Y2fa8tO_d8dWvD2f/view?usp=drive_link" target="_blank" class="btn android-btn" onclick="event.stopPropagation();">Download</a>
+                <a href="https://drive.google.com/file/d/1It2lQ4wFbtsdEjb5Y2fa8tO_d8dWvD2f/view" target="_blank" class="btn android-btn" onclick="event.stopPropagation();">Download</a>
             </div>
-            <div class="app-card android-card" onclick="openLink('https://drive.google.com/file/d/1sp7i0tK7LKHz8W-krGS_nknCcDO5UreU/view?usp=drive_link');">
+            <div class="app-card android-card" onclick="openLink('https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf');">
                 <div class="app-icon android-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <span class="platform-badge android-badge">Android</span>
                 <h3>Cisco AnyConnect</h3>
                 <p>Mobile VPN client for secure connectivity</p>
-                <a href="https://drive.google.com/file/d/1sp7i0tK7LKHz8W-krGS_nknCcDO5UreU/view?usp=drive_link" target="_blank" class="btn android-btn" onclick="event.stopPropagation();">Download</a>
+                <a href="https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf" target="_blank" class="btn android-btn" onclick="event.stopPropagation();">Download</a>
             </div>
             <div class="app-card android-card" onclick="openLink('https://linkup.zong.com.pk/down/index.html');">
                 <div class="app-icon android-icon">
                     <i class="fas fa-video"></i>
                 </div>
-                <span class="platform-badge android-badge">Android</span>
                 <h3>LinkUp Meeting App</h3>
                 <p>Mobile video conferencing solution</p>
                 <a href="https://linkup.zong.com.pk/down/index.html" target="_blank" class="btn android-btn" onclick="event.stopPropagation();">Download</a>
@@ -472,48 +402,20 @@
                 <div class="app-icon windows-icon">
                     <i class="fas fa-file-alt"></i>
                 </div>
-                <span class="platform-badge windows-badge">Windows</span>
                 <h3>Microsoft Office Suite</h3>
                 <p>Comprehensive office productivity suite</p>
                 <a href="https://drive.google.com/file/d/1HKTTb425qD-mc9JQppacy0IGtxLv2x_A/view?usp=drive_link" target="_blank" class="btn windows-btn" onclick="event.stopPropagation();">Download</a>
             </div>
         </div>
-
-        <h2 class="section-title">Web Apps</h2>
-        <div class="web-apps-grid">
-            <a href="https://officeworksolutionspro.on.drv.tw/www.workflow.com/calculator.html" target="_blank" class="web-app-card">
-                <i class="fas fa-calculator web-app-icon"></i>
-                <h3 class="web-app-title">Revenue Calculator</h3>
-            </a>
-            <a href="https://officeworksolutionspro.on.drv.tw/www.workflow.com/calculator.html" target="_blank" class="web-app-card">
-                <i class="fas fa-calendar-alt web-app-icon"></i>
-                <h3 class="web-app-title">Date Calculator</h3>
-            </a>
-            <a href="https://officeworksolutionspro.on.drv.tw/www.workflow.com/unit-converter.html" target="_blank" class="web-app-card">
-                <i class="fas fa-exchange-alt web-app-icon"></i>
-                <h3 class="web-app-title">Unit Converter</h3>
-            </a>
-        </div>
     </main>
 
     <footer>
         © Office Apps 2025
-        <button class="secret-button"><i class="fas fa-fan"></i></button>
     </footer>
 
     <script>
         const body = document.getElementById('pageBody');
         const modeSwitch = document.getElementById('modeSwitch');
-        const secretButton = document.querySelector('.secret-button');
-        let clickCount = 0;
-
-        secretButton.addEventListener('click', () => {
-            clickCount++;
-            if (clickCount === 7) {
-                window.open('https://www.google.com', '_blank');
-                clickCount = 0;
-            }
-        });
 
         function setCookie(name, value, days) {
             let expires = "";
@@ -565,13 +467,6 @@
             applyTheme(modeSwitch.checked);
         });
 
-        // Apply initial theme immediately to prevent flash of incorrect theme
-        if (getCookie('darkMode')) {
-            applyTheme(getCookie('darkMode') === 'enabled');
-        } else {
-            checkTimeAndSetTheme();
-        }
-
         function openLink(url) {
             window.open(url, '_blank');
         }
@@ -588,7 +483,7 @@
                 setTimeout(() => {
                     copyIcon.style.display = 'inline-block';
                     checkIcon.style.display = 'none';
-                }, 1500); // Revert after 1.5 seconds
+                }, 1500);
             }).catch(err => {
                 console.error('Could not copy password: ', err);
             });
