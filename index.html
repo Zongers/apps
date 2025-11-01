@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Apps - Essential Software Downloads</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://i.ibb.co/5xtR6Cqx/icon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Theme Variables */
+        :root {
+            --primary: #4285F4;
+            --secondary: #8A2BE2;
+            --accent: #EA4335;
+            --light: #FFFFFF;
+            --dark: #202124;
+            --bg: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --text: #202124;
+            --text-secondary: #5F6368;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --glow-gradient: linear-gradient(135deg, rgba(66, 133, 244, 0.75), rgba(138, 43, 226, 0.25));
+            --windows-gradient: linear-gradient(135deg, #1a6bc4, #3a8de0);
+            --android-gradient: linear-gradient(135deg, #34a853, #5bc777);
+        }
+
+        /* Gray Theme (now lighter) */
+        body.dark-theme {
+            --bg: #2a2a2a;
+            --card-bg: #3a3a3a;
+            --text: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* X-Dark Theme */
+        body.xdark-theme {
+            --bg: #000000;
+            --card-bg: #121212;
+            --text: #ffffff;
+            --text-secondary: #aaaaaa;
+            --border: rgba(255, 255, 255, 0.05);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            overflow-x: hidden;
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+            position: relative;
+        }
+
+        /* Top Glow Effect - Fixed to not change */
+        .top-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(90deg, #4285F4, #8A2BE2);
+            opacity: 0.1;
+            filter: blur(60px);
+            z-index: -1;
+            /* Removed animation to keep it static */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--text);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #4285F4, #8A2BE2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--text);
+            text-align: center;
+            width: 100%;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Card Glow Effect */
+        .app-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 14px;
+            background: var(--glow-gradient);
+            opacity: 0.03;
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .app-card:hover::before {
+            opacity: 1;
+        }
+
+        .app-card:hover::after {
+            opacity: 0.1;
+        }
+
+        .app-icon {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            position: relative;
+            background: linear-gradient(135deg, #4285F4, #8A2BE2);
+            color: white;
+        }
+
+        .app-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4285F4, #8A2BE2);
+            z-index: -1;
+            opacity: 0.3;
+            filter: blur(8px);
+        }
+
+        .app-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .app-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            min-width: 130px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .windows-btn {
+            background: var(--windows-gradient);
+        }
+
+        .windows-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .windows-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 107, 196, 0.3);
+        }
+
+        .android-btn {
+            background: var(--android-gradient);
+        }
+
+        .android-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .android-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.3);
+        }
+
+        /* Single Download Button */
+        .single-download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .single-download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .single-download-btn:hover::before {
+            left: 100%;
+        }
+
+        .single-download-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .single-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(66, 133, 244, 0.3);
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            width: 100%;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            opacity: 0.7;
+            position: relative;
+        }
+
+        /* Password Info */
+        .password-info {
+            text-align: center;
+            margin-top: 1rem;
+            display: inline-block;
+            background: rgba(66, 133, 244, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 500;
+            border: 1px solid rgba(66, 133, 244, 0.2);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .copy-password-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+            margin-left: 0.5rem;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .copy-password-btn:hover {
+            background: rgba(66, 133, 244, 0.1);
+        }
+
+        .copy-password-btn i.fa-check {
+            display: none;
+        }
+
+        /* Theme Selector */
+        .theme-selector {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            z-index: 100;
+        }
+
+        .theme-toggle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-options {
+            position: absolute;
+            bottom: 55px;
+            right: 0;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-width: 110px;
+            border: 1px solid var(--border);
+        }
+
+        .theme-option {
+            padding: 0.6rem 0.9rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .theme-option:hover {
+            background: rgba(66, 133, 244, 0.1);
+        }
+
+        .theme-option.active {
+            background: rgba(66, 133, 244, 0.2);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .theme-indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .light-indicator {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+        }
+
+        .dark-indicator {
+            background: #3a3a3a;
+            border: 1px solid #555;
+            display: none; /* Hide the gray theme */
+        }
+
+        .xdark-indicator {
+            background: #000000;
+            border: 1px solid #222;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid var(--border);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .modal-description {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .modal-features {
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-features h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .modal-features ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .modal-features li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .modal-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Centered Windows Apps Row */
+        .windows-apps-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h1 i {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin: 3rem 0 1.5rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .app-card {
+                padding: 2.2rem;
+                border-radius: 16px;
+            }
+            
+            .app-icon {
+                font-size: 2.5rem;
+                width: 80px;
+                height: 80px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .app-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .app-card p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                min-width: 140px;
+            }
+            
+            .single-download-btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 1rem;
+                min-width: 160px;
+            }
+            
+            footer {
+                margin-top: 4rem;
+                padding-top: 2rem;
+                font-size: 0.9rem;
+            }
+            
+            .password-info {
+                font-size: 1rem;
+                padding: 10px 18px;
+            }
+            
+            .theme-selector {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .theme-options {
+                min-width: 120px;
+            }
+            
+            .theme-option {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .modal-content {
+                padding: 2rem;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+            
+            .modal-description {
+                font-size: 1rem;
+            }
+            
+            .modal-features h4 {
+                font-size: 1.1rem;
+            }
+            
+            .modal-features li {
+                font-size: 1rem;
+            }
+            
+            .windows-apps-row {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .apps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body id="pageBody" class="light-theme">
+    <div class="top-glow"></div>
+    
+    <header>
+        <h1><i class="fa-brands fa-unity"></i>Office Apps</h1>
+        <p class="subtitle">Download essential software for your work devices</p>
+        <div class="password-info" onclick="copyPassword()">
+            All Zips Passwords are: 123
+            <button class="copy-password-btn" onclick="event.stopPropagation();">
+                <i class="fas fa-copy"></i>
+                <i class="fas fa-check" style="display: none;"></i>
+            </button>
+        </div>
+    </header>
+
+    <main style="width: 100%;">
+        <h2 class="section-title">Cross-Platform Apps</h2>
+        <div class="apps-grid">
+            <!-- Fusion Access Cloud Client - Dual Platform -->
+            <div class="app-card" onclick="openModal('fusion')">
+                <div class="app-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Fusion Access Cloud Client</h3>
+                <p>Secure remote access solution for enterprise environments</p>
+                <div class="download-buttons">
+                    <a href="#" class="single-download-btn" onclick="event.stopPropagation(); openModal('fusion'); return false;">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+
+            <!-- Cisco AnyConnect - Dual Platform -->
+            <div class="app-card" onclick="openModal('cisco')">
+                <div class="app-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Cisco AnyConnect</h3>
+                <p>VPN client for secure network connectivity</p>
+                <div class="download-buttons">
+                    <a href="#" class="single-download-btn" onclick="event.stopPropagation(); openModal('cisco'); return false;">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+
+            <!-- LinkUp Meeting App - Dual Platform -->
+            <div class="app-card" onclick="openModal('linkup')">
+                <div class="app-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>LinkUp Meeting App</h3>
+                <p>Video conferencing and collaboration platform</p>
+                <div class="download-buttons">
+                    <a href="#" class="single-download-btn" onclick="event.stopPropagation(); openModal('linkup'); return false;">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Windows Apps</h2>
+        <div class="windows-apps-row">
+            <!-- AnyDesk - Windows Only -->
+            <div class="app-card" onclick="openModal('anydesk')">
+                <div class="app-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3>AnyDesk</h3>
+                <p>Remote desktop access application</p>
+                <div class="download-buttons">
+                    <a href="#" class="single-download-btn" onclick="event.stopPropagation(); openModal('anydesk'); return false;">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+
+            <!-- Microsoft Office - Windows Only -->
+            <div class="app-card" onclick="openModal('office')">
+                <div class="app-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Microsoft Office</h3>
+                <p>Comprehensive office productivity </p>
+                <div class="download-buttons">
+                    <a href="#" class="single-download-btn" onclick="event.stopPropagation(); openModal('office'); return false;">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © Zongers | Office Apps
+    </footer>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">App Title</h3>
+            </div>
+            <p class="modal-description" id="modalDescription">App description will appear here.</p>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul id="modalFeatures">
+                    <li>Feature one</li>
+                    <li>Feature two</li>
+                    <li>Feature three</li>
+                </ul>
+            </div>
+            <div class="download-buttons">
+                <a href="#" target="_blank" class="btn windows-btn" id="modalWindowsBtn">
+                    <i class="fab fa-windows"></i> Windows
+                </a>
+                <a href="#" target="_blank" class="btn android-btn" id="modalAndroidBtn">
+                    <i class="fab fa-android"></i> Android
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="toggleThemeOptions()">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-option active" onclick="setTheme('light')">
+                <div class="theme-indicator light-indicator"></div>
+                Lite
+            </div>
+            <div class="theme-option" onclick="setTheme('xdark')">
+                <div class="theme-indicator xdark-indicator"></div>
+                Dark
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const body = document.getElementById('pageBody');
+        const themeOptions = document.getElementById('themeOptions');
+        const modalOverlay = document.getElementById('modalOverlay');
+
+        // App data for modals
+        const appData = {
+            'fusion': {
+                title: 'Fusion Access Cloud Client',
+                description: 'Secure remote access solution for enterprise environments with advanced security features and seamless connectivity.',
+                features: [
+                    'Secure remote desktop access',
+                    'Enterprise-grade encryption',
+                    'Multi-platform support',
+                    'Easy deployment and management'
+                ],
+                windowsUrl: 'https://drive.google.com/file/d/1L4f7KKVzKLsVb8mTMCX0GhAetVUrDBe2/view?usp=drive_link',
+                androidUrl: 'https://drive.google.com/file/d/1It2lQ4wFbtsdEjb5Y2fa8tO_d8dWvD2f/view',
+                icon: 'fa-cloud'
+            },
+            'cisco': {
+                title: 'Cisco AnyConnect',
+                description: 'VPN client for secure network connectivity with robust encryption and reliable performance.',
+                features: [
+                    'Secure VPN connectivity',
+                    'Advanced threat protection',
+                    'Automatic connection',
+                    'Cross-platform compatibility'
+                ],
+                windowsUrl: 'https://drive.google.com/file/d/1htFzWBc-SGOn2i-0NnCuUEuwBEYQPdoF/view?usp=drive_link',
+                androidUrl: 'https://play.google.com/store/apps/details?id=com.cisco.anyconnect.vpn.android.avf',
+                icon: 'fa-shield-alt'
+            },
+            'linkup': {
+                title: 'LinkUp Meeting App',
+                description: 'Video conferencing and collaboration platform with high-quality audio and video capabilities.',
+                features: [
+                    'HD video conferencing',
+                    'Screen sharing',
+                    'Chat and file sharing',
+                    'Meeting recording'
+                ],
+                windowsUrl: 'https://drive.google.com/file/d/1bc0zBpLRWb-bFnaQKlqUx5vMKWFXHcDU/view?usp=drive_link',
+                androidUrl: 'https://linkup.zong.com.pk/down/index.html',
+                icon: 'fa-video'
+            },
+            'anydesk': {
+                title: 'AnyDesk',
+                description: 'Remote desktop access application with fast performance and secure connections.',
+                features: [
+                    'Fast remote desktop access',
+                    'File transfer capabilities',
+                    'Secure TLS 1.2 encryption',
+                    'Customizable user interface'
+                ],
+                windowsUrl: 'https://drive.google.com/file/d/12Wmjto9Vff5zxfdGlPYRP2q1jbI70RWn/view?usp=sharing',
+                androidUrl: '',
+                icon: 'fa-desktop'
+            },
+            'office': {
+                title: 'Microsoft Office ',
+                description: 'Comprehensive office productivity  with all essential applications for professional work.',
+                features: [
+                    'Word, Excel, PowerPoint, and more',
+                    'Professional document creation',
+                    'Advanced data analysis',
+                    'Seamless collaboration'
+                ],
+                windowsUrl: 'https://drive.google.com/file/d/1HKTTb425qD-mc9JQppacy0IGtxLv2x_A/view?usp=drive_link',
+                androidUrl: '',
+                icon: 'fa-file-alt'
+            }
+        };
+
+        // Theme management using localStorage
+        function applyTheme(theme) {
+            // Remove all theme classes
+            body.classList.remove('light-theme', 'dark-theme', 'xdark-theme');
+            
+            // Add the selected theme class
+            body.classList.add(theme + '-theme');
+            
+            // Update active state in theme selector
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('onclick').includes(theme)) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('theme', theme);
+        }
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+
+        function toggleThemeOptions() {
+            themeOptions.style.display = themeOptions.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function setTheme(theme) {
+            applyTheme(theme);
+            toggleThemeOptions();
+        }
+
+        // Close theme options when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.theme-selector')) {
+                themeOptions.style.display = 'none';
+            }
+        });
+
+        function openModal(appId) {
+            const app = appData[appId];
+            if (!app) return;
+            
+            document.getElementById('modalTitle').textContent = app.title;
+            document.getElementById('modalDescription').textContent = app.description;
+            
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = '';
+            app.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+            
+            const windowsBtn = document.getElementById('modalWindowsBtn');
+            const androidBtn = document.getElementById('modalAndroidBtn');
+            
+            windowsBtn.href = app.windowsUrl;
+            
+            if (app.androidUrl) {
+                androidBtn.href = app.androidUrl;
+                androidBtn.style.display = 'flex';
+            } else {
+                androidBtn.style.display = 'none';
+            }
+            
+            modalOverlay.style.display = 'flex';
+            
+            // Trigger animation
+            setTimeout(() => {
+                modalOverlay.classList.add('active');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            setTimeout(() => {
+                modalOverlay.style.display = 'none';
+            }, 300);
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        function copyPassword() {
+            const password = "123";
+            const copyButton = document.querySelector('.copy-password-btn');
+            const copyIcon = copyButton.querySelector('.fa-copy');
+            const checkIcon = copyButton.querySelector('.fa-check');
+
+            navigator.clipboard.writeText(password).then(() => {
+                copyIcon.style.display = 'none';
+                checkIcon.style.display = 'inline-block';
+                setTimeout(() => {
+                    copyIcon.style.display = 'inline-block';
+                    checkIcon.style.display = 'none';
+                }, 1500);
+            }).catch(err => {
+                console.error('Could not copy password: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
